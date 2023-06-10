@@ -43,14 +43,12 @@
   <style scoped>
   div {
     padding: 30px;
-    margin: 30px auto;
-    max-width: 500px;
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #aaa;
+    margin: 0px auto;
   }
   table {
     border-collapse: collapse;
     width: 400px;
+    margin: auto;
   }
   td {
     padding: 5px;

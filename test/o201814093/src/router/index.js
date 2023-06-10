@@ -6,11 +6,6 @@ import ExamFour from '../views/ExamFour.vue'
 
 const routes = [
   {
-    path: '/',
-    name: 'examOne',
-    component: ExamOne
-  },
-  {
     path: '/examOne', 
     name: 'examOne', 
     component: ExamOne

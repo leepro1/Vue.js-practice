@@ -15,8 +15,12 @@
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
+  width: 700px; 
+  margin: 0 auto;
+  border: 1px solid #acc;
   text-align: center;
-  color: #2c3e50;
+  padding: 20px;
 }
 
 nav {

@@ -7,17 +7,22 @@
     </div>
 </template>
   
-  <script>
-  export default {
-    name: "ExamOne",
-    data(){
-      return{
-        studentId: "201814093",
-        name: "이희주",
-        nowTime: new Date() 
-      };
-    }
-  };
+<script>
+import moment from "moment";
+
+export default {
+  name: "ExamOne",
+  data(){
+    return {
+      studentId: "201814093",
+      name: "이희주",
+      nowTime: null 
+    };
+  },
+  mounted() {
+    this.nowTime = moment().format("HH:mm:ss");
+  }
+};
 </script>
   
 <style scoped>

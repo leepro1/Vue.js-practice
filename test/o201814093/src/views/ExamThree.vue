@@ -2,14 +2,14 @@
     <div>
       <h1>ExamThree</h1>
       <div>
-        <select v-model="selectedColor">
+        <select v-model="color">
           <option value="yellow">Yellow</option>
           <option value="green">Green</option>
           <option value="blue">Blue</option>
           <option value="red">Red</option>
         </select>
       </div>
-      <ExamThreeChild v-bind:color="selectedColor" />
+      <ExamThreeChild v-bind:color="color" />
   </div>
 </template>
 
@@ -23,7 +23,7 @@ export default {
   },
   data() {
     return {
-      selectedColor: "yellow",
+      color: "yellow"
     };
   },
 };

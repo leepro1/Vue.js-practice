@@ -1,6 +1,6 @@
 <template>
     <div>
-        <p>ExamFour</p>
+        <p>ExamFourChild</p>
         <input type="text" v-model="value" />
         <button type="button" @click="$emit('send', value)">전달</button>
     </div>
@@ -22,5 +22,13 @@
     padding: 5px;
     margin-right: 5px;
     width: 200px;
+  }
+  div{
+    background-color: yellow;
+    margin: auto;
+    padding: 10px;
+  }
+  button{
+    padding: 6px 15px;
   }
   </style>
