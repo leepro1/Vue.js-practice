@@ -16,9 +16,8 @@
     </div> 
 </template> 
 
-<script> 
-import axios from 'axios'; 
-axios.defaults.baseURL = "http://localhost:3000"; // 백엔드 API URL 앞 부분을 미리 설정한다 
+<script>
+import { loadStudents } from '../studentService';
 
 export default { 
     name: "StudentListView", 
@@ -26,18 +25,10 @@ export default {
         return { 
             students: [ ] 
         } 
-    }, mounted() { // 컴포넌트가 처음 화면에 보이게 될 때, 자동으로 호출되는 메소드 
-        this.reloadStudents(); // 데이터를 로드한다 
-    }, methods: { 
-        async reloadStudents() { // 백엔드 API를 호출하여 데이터를 로드한다 
-            try { 
-                const response = await axios.get("/students"); 
-                this.students = response.data; 
-            } catch (error) { 
-                alert('조회 에러: ' + (error instanceof Error ? error.message : error)); 
-            } 
-        },
-        goEdit(id){
+    }, async mounted() { // 컴포넌트가 처음 화면에 보이게 될 때, 자동으로 호출되는 메소드 
+        this.students = await loadStudents();
+    }, methods: {
+       goEdit(id){
             this.$router.push("/edit/" + id);
         } 
     } 

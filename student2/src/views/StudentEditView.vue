@@ -25,8 +25,7 @@
 </template> 
 
 <script> 
-import axios from 'axios'; 
-axios.defaults.baseURL = "http://localhost:3000"; 
+import { loadStudent, saveStudent } from '../studentService';
 
 export default { 
     name: "StudentEditView", 
@@ -34,27 +33,12 @@ export default {
         return { 
             student: { } 
         } 
-    }, mounted() { 
+    }, async mounted() { 
         const id = this.$route.params.id; 
-        this.loadStudent(id); 
-    }, methods: { 
-        async loadStudent(id) { 
-            try { 
-                const response = await axios.get("/students/" + id); 
-                this.student = response.data; 
-            } catch (error) { 
-                alert('조회 에러: ' + (error instanceof Error ? error.message : error)); 
-            } 
-        }, 
-        async saveStudent(student) { 
-            try { 
-                await axios.put("/students/" + student.id, student); 
-            } catch (error) { 
-                alert('저장 에러: ' + (error instanceof Error ? error.message : error)); 
-            }
-        }, 
+        this.student = await loadStudent(id);
+    }, methods: {  
         async save() { 
-            await this.saveStudent(this.student); 
+            await saveStudent(this.student); 
             this.goList(); 
         }, 
         goList() { 
