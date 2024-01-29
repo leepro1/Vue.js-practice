@@ -1,34 +1,47 @@
 <template>
-  <div>{{ rawHtml }}</div>
-  <div>{{ rawHtml2 }}</div>
-  <h1 v-html="rawHtml2"></h1>
-  
-  <h2 v-bind:class="{active:isActive}">액티브</h2>
-  <h2 :class="{active:isActive}">액티브</h2>
-  <button @click="change">버튼</button>
+<!--   
+  <div class="red" v-if="isVisible"></div>
+  <div class="blue" v-if="isVisible === true"></div>
 
-  <h3 :style="{color:'blue'}">스타일 바인딩 테스트</h3>
+  <div class="black" v-else></div>
+ -->
+ <div class="red" v-if="count > -1"></div>
+ <button @click="count = -count">v-if버튼</button>
+
+ 
+ <div class="blue" v-show="isVisible"></div>
+ <button @click="isVisible= !isVisible">v-show버튼</button>
 </template>
 
 <script>
 export default {
   data() {
     return {
-      rawHtml: '이것은 텍스트입니다.',
-      rawHtml2: '<span style="color:red">이것은 빨간색입니다.</span>',
-      isActive: false,
-    }
-  },
-  methods: {
-    change() {
-      this.isActive = !this.isActive
+      isVisible : true,
+      count : 1,
     }
   }
 }
 </script>
 
 <style scoped>
-h2.active {
-  color:aquamarine
+.red {
+  width: 100px;
+  height: 100px;
+
+  background-color: red;
 }
+.blue {
+  width: 100px;
+  height: 100px;
+
+  background-color: blue;
+}
+.black {
+  width: 100px;
+  height: 100px;
+
+  background-color: black;
+}
+
 </style>
