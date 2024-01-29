@@ -1,47 +1,28 @@
 <template>
-<!--   
-  <div class="red" v-if="isVisible"></div>
-  <div class="blue" v-if="isVisible === true"></div>
-
-  <div class="black" v-else></div>
- -->
- <div class="red" v-if="count > -1"></div>
- <button @click="count = -count">v-if버튼</button>
-
- 
- <div class="blue" v-show="isVisible"></div>
- <button @click="isVisible= !isVisible">v-show버튼</button>
+  <div>
+    <li v-for="sample in sampleArr" :key="sample">{{ sample }}</li>
+  </div>  
+  <div>
+    <li v-for="(user, index) in sampleObjectArr" :key="user.id">{{ index }} /{{ user.name }} / {{ user.age }}</li>
+  </div>
 </template>
 
 <script>
 export default {
   data() {
     return {
-      isVisible : true,
-      count : 1,
+      sampleArr : ['a', 'b', 'c', 'd'],
+      sampleObjectArr : [
+        {id:1, name:'이희주', age:22},
+        {id:2, name:'오이주', age:12},
+        {id:3, name:'엄주탱', age:25},
+        {id:4, name:'손민주', age:42}
+      ]
     }
   }
 }
 </script>
 
 <style scoped>
-.red {
-  width: 100px;
-  height: 100px;
-
-  background-color: red;
-}
-.blue {
-  width: 100px;
-  height: 100px;
-
-  background-color: blue;
-}
-.black {
-  width: 100px;
-  height: 100px;
-
-  background-color: black;
-}
 
 </style>
